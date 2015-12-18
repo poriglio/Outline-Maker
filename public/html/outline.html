@@ -1,0 +1,46 @@
+<div ng-repeat="story in stories">
+	<h1>{{story.title}}
+		<button type="button" ng-click="delete($index)">delete</button>
+	</h1>
+	<div>by {{story.username}}</div>
+	<div ng-repeat="part in story.parts">
+		<h2>{{part.name}}
+					<button type="button" ng-click="down($index,$parent.$index)">move down</button>
+					<button type="button" ng-click="up($index,$parent.$index)">move up</button>
+					<button type="button" ng-click="delete($index,$parent.$index)">delete</button>
+		</h2>
+		<div ng-repeat="chapter in part.chapters">
+			<h3>{{$index + 1}} - {{chapter.name}}
+					<button type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index)">move down</button>
+					<button type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index)">move up</button>
+					<button type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index)">delete</button>
+			</h3>
+			<ul>
+				<li ng-repeat="event in chapter.events">
+					{{event.content}}
+					<button type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move down</button>
+					<button type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move up</button>
+					<button type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">delete</button>
+				</li>
+				<form ng-submit="createEvent($parent.$parent.$index,$parent.$index,$index,event)">
+					<input type="text" placeholder="Event..." name="event.content" ng-model="event.content">
+					<input type="submit" value="Submit Event">
+				</form>
+			</ul>
+		</div>
+		<form ng-submit="createChapter($parent.$index,$index,chapter)">
+			<input type="text" placeholder="Chapter name..." name="chapter.name" ng-model="chapter.name">
+			<input type="submit" value="Submit Chapter">
+		</form>
+	</div>
+	<form ng-submit="createPart($index,part)">
+		<input type="text" placeholder="Part name..." name="part.name" ng-model="part.name">
+		<input type="submit" value="Submit Part">
+	</form>
+</div>
+
+<form ng-submit="createOutline()">
+	<h2>New Outline</h2>
+	<input type="text" placeholder="Story title..." name="title" ng-model="title">
+	<input type="submit" value="Submit Outline">
+</form>
