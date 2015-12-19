@@ -1,19 +1,34 @@
-var Story = require("../models/story.js")
+var Outline = require("../models/story.js")
 
-var saveStory = function(request,response){
-	var newStory = new Story({
-		username    : request.user.username,
-		parts       : request.body.parts,
-		title       : request.body.title, 
+var saveOutline = function(request,response){
+
+	Outline.find({_id : request.body._id},function(docs,error){
+		if(!docs){
+
+		}
 	})
 
-	newStory.save(function(error){
-	})
+	if(!request.body._id){
+		var newOutline = new Outline({
+			username    : request.user.username,
+			parts       : request.body.parts,
+			title       : request.body.title, 
+		})
+
+		newOutline.save(function(error){
+		})
+	}
+	else{
+		Outline.update({_id : request.body._id},{username : request.user.username, parts : request.body.parts, title : request.body.title},function(error){
+			
+		})
+	}
+
 }
 
-var getLists = function(request,response){
+var findOutlines = function(request,response){
 	var user = request.user.username
-	List.find({username : user},function(error,docs){
+	Outline.find({username : user},function(error,docs){
 		response.send(docs)
 	})
 }
@@ -27,7 +42,7 @@ var deleteList = function(request,response){
 }
 
 module.exports = {
-	saveStory   : saveStory,
-	getLists   : getLists,
-	deleteList : deleteList
+	saveOutline    : saveOutline,
+	findOutlines   : findOutlines,
+	deleteList     : deleteList
 }

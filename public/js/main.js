@@ -35,6 +35,14 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 
 	$scope.stories = []
 
+	$http.get("/api/me").then(function(returnData){
+		$scope.username = returnData.data.username
+	})
+
+	$http.get("/api/outline").then(function(returnData){
+		$scope.stories = returnData.data
+	})
+
 	var Outline = function(title,username,parts){
 		this.title = title
 		this.username = username
@@ -76,21 +84,60 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 	}
 
 	$scope.up = function(index1,index2,index3,index4){
-		if(index1 != 0){	
-			var1 = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1])
-			var2 = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1-1])
-			$scope.stories[index4].parts[index3].chapters[index2].events[index1] = var2
-			$scope.stories[index4].parts[index3].chapters[index2].events[index1-1] = var1
+		if(index1 != 0){
+			if(index4 !== undefined){
+				// an event is being moved up
+				var1 = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1])
+				var2 = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1-1])
+				$scope.stories[index4].parts[index3].chapters[index2].events[index1] = var2
+				$scope.stories[index4].parts[index3].chapters[index2].events[index1-1] = var1
+			}
+			else if(index3 !== undefined){
+				// a chapter is being moved up
+				var1 = angular.copy($scope.stories[index3].parts[index2].chapters[index1])
+				var2 = angular.copy($scope.stories[index3].parts[index2].chapters[index1-1])
+				$scope.stories[index3].parts[index2].chapters[index1] = var2
+				$scope.stories[index3].parts[index2].chapters[index1-1] = var1
+			}
+			else if(index2 !== undefined){
+				// a part is being moved up
+				var1 = angular.copy($scope.stories[index2].parts[index1])
+				var2 = angular.copy($scope.stories[index2].parts[index1-1])
+				$scope.stories[index2].parts[index1] = var2
+				$scope.stories[index2].parts[index1-1] = var1	
+			
+			}
 		}
 	}
 
 	$scope.down = function(index1,index2,index3,index4){
-		if(index1 != $scope.stories[index4].parts[index3].chapters[index2].events.length - 1){	
-			var1 = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1+1])
-			var2 = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1])
-			$scope.stories[index4].parts[index3].chapters[index2].events[index1] = var1
-			$scope.stories[index4].parts[index3].chapters[index2].events[index1+1] = var2
-		}		
+		if(index4 !== undefined){
+			// an event is being moved
+			if(index1 != $scope.stories[index4].parts[index3].chapters[index2].events.length - 1){	
+				var1 = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1+1])
+				var2 = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1])
+				$scope.stories[index4].parts[index3].chapters[index2].events[index1] = var1
+				$scope.stories[index4].parts[index3].chapters[index2].events[index1+1] = var2
+			}
+		}
+		else if(index3 !== undefined){
+			// a chapter is being moved
+			if(index1 != $scope.stories[index3].parts[index2].chapters.length - 1){
+				var1 = angular.copy($scope.stories[index3].parts[index2].chapters[index1+1])	
+				var2 = angular.copy($scope.stories[index3].parts[index2].chapters[index1])
+				$scope.stories[index3].parts[index2].chapters[index1] = var1
+				$scope.stories[index3].parts[index2].chapters[index1+1] = var2					
+			}
+		}	
+		else if(index2 !== undefined){
+			// a part is being moveed
+			if(index1 != $scope.stories[index2].parts.length - 1){
+				var1 = angular.copy($scope.stories[index2].parts[index1 + 1])
+				var2 = angular.copy($scope.stories[index2].parts[index1])
+				$scope.stories[index2].parts[index1] = var1
+				$scope.stories[index2].parts[index1+1] = var2				
+			}
+		}	
 	}
 
 	$scope.delete = function(index1,index2,index3,index4){
@@ -110,6 +157,14 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 			// the deleted item is a story
 			$scope.stories.splice(index1,1)
 		}
+	}
+
+	$scope.saveOutline = function($index){
+		$http({
+			method : "POST",
+			url    : "/api/outline",
+			data   : $scope.stories[$index]
+		})
 	}
 
 }])

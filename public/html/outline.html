@@ -1,3 +1,10 @@
+<div>
+	<h1>Your Stories</h1>
+	<ul>
+		<li ng-repeat="story in stories">{{story.title}}</li>
+	</ul>
+</div>
+
 <div ng-repeat="story in stories">
 	<h1>{{story.title}}
 		<button type="button" ng-click="delete($index)">delete</button>
@@ -36,6 +43,9 @@
 	<form ng-submit="createPart($index,part)">
 		<input type="text" placeholder="Part name..." name="part.name" ng-model="part.name">
 		<input type="submit" value="Submit Part">
+	</form>
+	<form ng-submit="saveOutline($index)">
+		<input type="submit" value="Save Outline">
 	</form>
 </div>
 

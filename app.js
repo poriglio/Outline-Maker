@@ -52,7 +52,9 @@ app.get("/api/me",function(request,response){
 	response.send(request.user)
 })
 
-app.post("/api/story",outlineController.saveStory)
+app.get("/api/outline",outlineController.findOutlines)
+
+app.post("/api/outline",outlineController.saveOutline)
 
 app.get("/auth/logout",authController.logout)
 
