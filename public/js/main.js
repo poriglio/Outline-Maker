@@ -167,4 +167,15 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 		})
 	}
 
+	$scope.hideButtons = false
+
+	$scope.toggleButtons = function(){
+		if($scope.hideButtons === true){
+			$scope.hideButtons = false
+		}
+		else{
+			$scope.hideButtons = true
+		}
+	}
+
 }])

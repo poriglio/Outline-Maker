@@ -1,56 +1,49 @@
-<div>
-	<h1>Your Stories</h1>
-	<ul>
-		<li ng-repeat="story in stories">{{story.title}}</li>
-	</ul>
-</div>
+<button type="button" class="button" ng-click="toggleButtons()"><span ng-show="hideButtons === true">show</span><span ng-hide="hideButtons === true">hide</span> buttons</button>
 
-<div ng-repeat="story in stories">
+<div class="outline" ng-repeat="story in stories">
 	<h1>{{story.title}}
-		<button type="button" ng-click="delete($index)">delete</button>
+		<button class="button" type="button" ng-click="delete($index)">delete</button>
 	</h1>
-	<div>by {{story.username}}</div>
-	<div ng-repeat="part in story.parts">
+	<div class="part" ng-repeat="part in story.parts">
 		<h2>{{part.name}}
-					<button type="button" ng-click="down($index,$parent.$index)">move down</button>
-					<button type="button" ng-click="up($index,$parent.$index)">move up</button>
-					<button type="button" ng-click="delete($index,$parent.$index)">delete</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="down($index,$parent.$index)">move down</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="up($index,$parent.$index)">move up</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="delete($index,$parent.$index)">delete</button>
 		</h2>
-		<div ng-repeat="chapter in part.chapters">
+		<div class="chapter" ng-repeat="chapter in part.chapters">
 			<h3>{{$index + 1}} - {{chapter.name}}
-					<button type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index)">move down</button>
-					<button type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index)">move up</button>
-					<button type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index)">delete</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index)">move down</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index)">move up</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index)">delete</button>
 			</h3>
 			<ul>
-				<li ng-repeat="event in chapter.events">
+				<li class="event" ng-repeat="event in chapter.events">
 					{{event.content}}
-					<button type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move down</button>
-					<button type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move up</button>
-					<button type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">delete</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move down</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move up</button>
+					<button ng-hide="hideButtons" class="button" type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">delete</button>
 				</li>
-				<form ng-submit="createEvent($parent.$parent.$index,$parent.$index,$index,event)">
-					<input type="text" placeholder="Event..." name="event.content" ng-model="event.content">
-					<input type="submit" value="Submit Event">
+				<form class="outline-form" ng-submit="createEvent($parent.$parent.$index,$parent.$index,$index,event)">
+					<input class="outline-input" type="text" placeholder="Event..." name="event.content" ng-model="event.content">
+					<input class="button" type="submit" value="Submit Event">
 				</form>
 			</ul>
 		</div>
-		<form ng-submit="createChapter($parent.$index,$index,chapter)">
-			<input type="text" placeholder="Chapter name..." name="chapter.name" ng-model="chapter.name">
-			<input type="submit" value="Submit Chapter">
+		<form class="outline-form" ng-submit="createChapter($parent.$index,$index,chapter)">
+			<input class="outline-input" type="text" placeholder="Chapter name..." name="chapter.name" ng-model="chapter.name">
+			<input class="button" type="submit" value="Submit Chapter">
 		</form>
 	</div>
-	<form ng-submit="createPart($index,part)">
-		<input type="text" placeholder="Part name..." name="part.name" ng-model="part.name">
-		<input type="submit" value="Submit Part">
+	<form class="outline-form" ng-submit="createPart($index,part)">
+		<input class="outline-input" type="text" placeholder="Part name..." name="part.name" ng-model="part.name">
+		<input class="button" type="submit" value="Submit Part">
 	</form>
-	<form ng-submit="saveOutline($index)">
-		<input type="submit" value="Save Outline">
+	<form class="outline-form" ng-submit="saveOutline($index)">
+		<input class="button" type="submit" value="Save Outline">
+	</form>
+	<form class="outline-form" ng-submit="createOutline()">
+		<h2>New Outline</h2>
+		<input class="outline-input" type="text" placeholder="Story title..." name="title" ng-model="title">
+		<input class="button" type="submit" value="Submit Outline">
 	</form>
 </div>
-
-<form ng-submit="createOutline()">
-	<h2>New Outline</h2>
-	<input type="text" placeholder="Story title..." name="title" ng-model="title">
-	<input type="submit" value="Submit Outline">
-</form>

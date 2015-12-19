@@ -24,9 +24,22 @@ body{
 .template{
 	max-width: 1000px;
 	margin-top: 5rem;
-	background-color: #FFF;
 	padding: 1rem;
+	width: 100%;
+	background-color: #FFF;
 	border: 1px solid;
+}
+
+.event{
+	margin: 5px 0px 5px 30px;
+}
+
+.chapter{
+	margin: 15px 0px 0px 25px;
+}
+
+.part{
+	margin: 15px 0px 0px 15px;	
 }
 
 li{
@@ -97,5 +110,25 @@ input{
 
 .button{
 	border-style: none;
-	border-radius: 8px;
+	display: inline-block;
+	background-color: hsl(193,100%,45%);
+	box-shadow: 4px 4px 7px -2px black;
+	border-radius: 5px;
+	margin: 4px 3px;
+	padding: 5px;
+}
+
+.button:hover{
+	background-color: hsl(193,100%,60%);
+	transition: 0.5s;
+}
+
+.outline-input{
+	display: inline-block;
+}
+
+.outline-form{
+	display: inline-block;
+	text-align: center;
+	width: 100%;
 }
