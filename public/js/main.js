@@ -1,4 +1,4 @@
-angular.module("storyApp",["ngRoute"])
+angular.module("storyApp",["ngRoute","ui.bootstrap"])
 
 angular.module("storyApp").config(["$routeProvider",function($routeProvider){
 
@@ -10,6 +10,36 @@ angular.module("storyApp").config(["$routeProvider",function($routeProvider){
 		templateUrl : "/html/outline.html",
 		controller  : "outlineController"
 	})
+
+}])
+
+angular.module("storyApp").controller("dropdownController",["$scope","$log",function($scope,$log){
+
+  $scope.browseItems = [
+  		"users",
+  		"stories",
+  		"poems",
+  		"essays"
+  ];
+
+  $scope.accountItems = [
+  		"profile",
+  		"submissions"
+  ]
+
+  $scope.status = {
+    isopen: false
+  };
+
+  $scope.toggled = function(open) {
+    $log.log('Dropdown is now: ', open);
+  };
+
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
 
 }])
 
@@ -168,6 +198,7 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 	}
 
 	$scope.hideButtons = false
+	$scope.hideForms = false
 
 	$scope.toggleButtons = function(){
 		if($scope.hideButtons === true){
@@ -175,6 +206,15 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 		}
 		else{
 			$scope.hideButtons = true
+		}
+	}
+
+	$scope.toggleForms = function(){
+		if($scope.hideForms === true){
+			$scope.hideForms = false
+		}
+		else{
+			$scope.hideForms = true
 		}
 	}
 

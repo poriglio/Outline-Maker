@@ -1,8 +1,10 @@
 <button type="button" class="button" ng-click="toggleButtons()"><span ng-show="hideButtons === true">show</span><span ng-hide="hideButtons === true">hide</span> buttons</button>
 
+<button type="button" class="button" ng-click="toggleForms()"><span ng-show="hideForms === true">show</span><span ng-hide="hideForms === true">hide</span> forms</button>
+
 <div class="outline" ng-repeat="story in stories">
 	<h1>{{story.title}}
-		<button class="button" type="button" ng-click="delete($index)">delete</button>
+		<button ng-hide="hideButtons" class="button" type="button" ng-click="delete($index)">delete</button>
 	</h1>
 	<div class="part" ng-repeat="part in story.parts">
 		<h2>{{part.name}}
@@ -23,25 +25,25 @@
 					<button ng-hide="hideButtons" class="button" type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move up</button>
 					<button ng-hide="hideButtons" class="button" type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">delete</button>
 				</li>
-				<form class="outline-form" ng-submit="createEvent($parent.$parent.$index,$parent.$index,$index,event)">
+				<form ng-hide="hideForms" class="outline-form" ng-submit="createEvent($parent.$parent.$index,$parent.$index,$index,event)">
 					<input class="outline-input" type="text" placeholder="Event..." name="event.content" ng-model="event.content">
 					<input class="button" type="submit" value="Submit Event">
 				</form>
 			</ul>
 		</div>
-		<form class="outline-form" ng-submit="createChapter($parent.$index,$index,chapter)">
+		<form ng-hide="hideForms" class="outline-form" ng-submit="createChapter($parent.$index,$index,chapter)">
 			<input class="outline-input" type="text" placeholder="Chapter name..." name="chapter.name" ng-model="chapter.name">
 			<input class="button" type="submit" value="Submit Chapter">
 		</form>
 	</div>
-	<form class="outline-form" ng-submit="createPart($index,part)">
+	<form ng-hide="hideForms" class="outline-form" ng-submit="createPart($index,part)">
 		<input class="outline-input" type="text" placeholder="Part name..." name="part.name" ng-model="part.name">
 		<input class="button" type="submit" value="Submit Part">
 	</form>
-	<form class="outline-form" ng-submit="saveOutline($index)">
+	<form ng-hide="hideForms" class="outline-form" ng-submit="saveOutline($index)">
 		<input class="button" type="submit" value="Save Outline">
 	</form>
-	<form class="outline-form" ng-submit="createOutline()">
+	<form ng-hide="hideForms" class="outline-form" ng-submit="createOutline()">
 		<h2>New Outline</h2>
 		<input class="outline-input" type="text" placeholder="Story title..." name="title" ng-model="title">
 		<input class="button" type="submit" value="Submit Outline">
