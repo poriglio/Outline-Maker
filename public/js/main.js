@@ -77,7 +77,9 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 		this.title = title
 		this.username = username
 		this.parts = parts
-		$scope.stories.push(this)
+		var newStory = []
+		newStory.push(this)
+		$scope.stories = newStory.concat($scope.stories)
 	}
 
 	var Part = function(name,chapters,index){
@@ -195,6 +197,21 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 			url    : "/api/outline",
 			data   : $scope.stories[$index]
 		})
+	}
+
+	$scope.copiedText = {}
+
+	$scope.copyEvent = function(index1,index2,index3,index4){
+		$scope.hideButtons = true
+		$scope.hideForms = true
+		$scope.showPasteButtons = true
+		$scope.copiedText = angular.copy($scope.stories[index4].parts[index3].chapters[index2].events[index1])
+		$scope.delete(index1,index2,index3,index4)
+	}
+
+	$scope.pasteEvent = function(index2,index3,index4){
+		$scope.showPasteButtons = false
+		$scope.createEvent(index4,index3,index2,$scope.copiedText)
 	}
 
 	$scope.hideButtons = false

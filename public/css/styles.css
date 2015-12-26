@@ -1,7 +1,6 @@
 html *{
 	padding: 0px;
 	margin: 0px;
-	margin: auto;
 	font-size: 16px;
 	font-family: Lato;
 	box-sizing: border-box;
@@ -17,8 +16,9 @@ body{
 	width: 100%;
 	top: 0px;
 	padding: 0.75rem;
-	background: linear-gradient(to left, hsl(193,100%,29%), hsl(193,100%,41%));
-	box-shadow: 0px 1px 8px 1px black;
+	background: transparent linear-gradient(to left, #007393, #00A3D1) repeat scroll 0% 0%;
+	box-shadow: 0px 1px 8px 1px #000;
+	border-bottom: 8px solid hsl(212,100%,23%);
 }
 
 .title *{
@@ -31,15 +31,41 @@ body{
 
 .template{
 	max-width: 1000px;
-	margin-top: 5rem;
+	margin-top: 5.75rem;
 	padding: 1rem;
 	width: 100%;
 	background-color: #FFF;
 	border: 1px solid;
+	margin-bottom: 10rem;
+}
+
+.outline{
+	border-top: 4px double hsl(212,100%,23%);
+	margin: 2rem 2rem;
+	padding-top: 1.5rem;
 }
 
 .event{
-	margin: 5px 0px 5px 30px;
+	margin: 0px 100px 0px 30px;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+/*CSS COLOR NAME : lightslategrey*/
+
+.event-even{
+	background-color: #f0f2f4;
+}
+
+.event-odd{
+	background-color: #e2e6e9;
+}
+
+.outline-form{
+	display: inline-block;
+}
+
+.event-form{
+	display: block;
 }
 
 .chapter{
@@ -52,6 +78,10 @@ body{
 
 li{
 	list-style-type: none;
+}
+
+li p{
+	overflow: hidden;
 }
 
 h1{
@@ -116,27 +146,28 @@ input{
 	color: hsl(241,90%,77%);	
 }
 
+.button-container{
+	float: right;
+
+}
+
 .button{
 	border-style: none;
 	display: inline-block;
-	background-color: hsl(193,100%,45%);
-	box-shadow: 4px 4px 7px -2px black;
-	border-radius: 5px;
-	margin: 4px 3px;
-	padding: 5px;
+	background-color: rgba(1,1,1,0);
+	padding: 4px;
+}
+
+.button,.button span{
+	font-size: 0.8rem;
+	letter-spacing: 1px;
 }
 
 .button:hover{
-	background-color: hsl(193,100%,60%);
+	background-color: #c5ccd3;
 	transition: 0.5s;
 }
 
 .outline-input{
 	display: inline-block;
-}
-
-.outline-form{
-	display: inline-block;
-	text-align: center;
-	width: 100%;
 }
