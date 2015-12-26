@@ -48,10 +48,10 @@
 			<ul>
 				<li class="event" ng-repeat="event in chapter.events" ng-class-even="'event-even'" ng-class-odd="'event-odd'">
 					<div class="button-container">
-						<button ng-hide="hideButtons || $last" class="button" type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move down</button>
-						<button ng-hide="hideButtons || $first" class="button" type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move up</button>
-						<button ng-hide="hideButtons" class="button" type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">delete</button>
-						<button ng-hide="hideButtons" class="button" type="button" ng-click="copyEvent($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">move to...</button>
+						<button ng-hide="hideButtons || $last" class="button" type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">&#8595;</button>
+						<button ng-hide="hideButtons || $first" class="button" type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">&#8593;</button>
+						<button ng-hide="hideButtons" class="button" type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">x</button>
+						<button ng-hide="hideButtons" class="button" type="button" ng-click="copyEvent($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">&#8596;</button>
 					</div>
 					<p>{{event.content}}</p>
 				</li>

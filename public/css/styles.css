@@ -1,6 +1,7 @@
 html *{
 	padding: 0px;
 	margin: 0px;
+	margin: auto;
 	font-size: 16px;
 	font-family: Lato;
 	box-sizing: border-box;
@@ -159,7 +160,6 @@ input{
 }
 
 .button,.button span{
-	font-size: 0.8rem;
 	letter-spacing: 1px;
 }
 
