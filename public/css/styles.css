@@ -45,7 +45,6 @@ input{
 .title{
 	position: fixed;
 	width: 100%;
-	text-align: center;
 	top: 0px;
 	padding: 0.75rem;
 	background: transparent linear-gradient(to left, #007393, #00A3D1) repeat scroll 0% 0%;
@@ -121,15 +120,15 @@ input{
 
 input[value="+"]{
 	background-color: #E2E6E9;
-	border-radius: 50% 50%;
-	width: 1.5rem;
-	height: 1.5rem;
+	border-radius: 50%;
+	width: 1.75rem;
+	height: 1.75rem;
 	line-height: 0.5rem;
 	vertical-align: middle;
 }
 
 input[value="+"]:hover{
-	background-color: pink;
+	background-color: #c5ccd3;
 	transition: 0.5s;
 }
 

@@ -56,6 +56,8 @@ app.get("/api/outline",outlineController.findOutlines)
 
 app.post("/api/outline",outlineController.saveOutline)
 
+app.post("/api/outline/delete",outlineController.deleteOutline)
+
 app.get("/auth/logout",authController.logout)
 
 var port = 3000

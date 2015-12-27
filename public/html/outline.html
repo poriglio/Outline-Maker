@@ -28,7 +28,7 @@
 				<button ng-hide="hideButtons" class="button" type="button" ng-click="delete($index,$parent.$index)">x</button>
 			</div>
 		</h2>
-		<form ng-hide="hideForms" class="outline-form center" ng-submit="createChapter($parent.$index,$index,chapter)">
+		<form ng-hide="hideForms" class="outline-form" ng-submit="createChapter($parent.$index,$index,chapter)">
 			<input class="outline-input" type="text" placeholder="Chapter name..." name="chapter.name" ng-model="chapter.name">
 			<input class="button" type="submit" value="+">
 		</form>

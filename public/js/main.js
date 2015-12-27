@@ -69,9 +69,16 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 		$scope.username = returnData.data.username
 	})
 
-	$http.get("/api/outline").then(function(returnData){
-		$scope.stories = returnData.data
-	})
+	var getOutlines = function(){
+		$http.get("/api/outline").then(function(returnData){
+			$scope.stories = returnData.data
+			$scope.stories = $scope.stories.sort(function(a,b){
+				return b.dateAdded - a.dateAdded
+			})
+		})
+	}
+
+	getOutlines()
 
 	var Outline = function(title,username,parts){
 		this.title = title
@@ -101,6 +108,8 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 
 	$scope.createOutline = function(){
 		new Outline($scope.title,"Paula",[])
+		$scope.saveOutline(0)
+		getOutlines()
 	}
 
 	$scope.createPart = function($index,part){
@@ -187,7 +196,13 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 		}
 		else{
 			// the deleted item is a story
+			var id = $scope.stories[index1]._id
 			$scope.stories.splice(index1,1)
+			$http({
+				method : "POST",
+				url    : "/api/outline/delete",
+				data   : {id : id}
+			})
 		}
 	}
 
