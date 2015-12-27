@@ -75,6 +75,7 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 			$scope.stories = $scope.stories.sort(function(a,b){
 				return b.dateAdded - a.dateAdded
 			})
+			console.log($scope.stories)
 		})
 	}
 
@@ -197,12 +198,11 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 		else{
 			// the deleted item is a story
 			var id = $scope.stories[index1]._id
-			$scope.stories.splice(index1,1)
 			$http({
 				method : "POST",
 				url    : "/api/outline/delete",
 				data   : {id : id}
-			})
+			}).then(getOutlines())
 		}
 	}
 

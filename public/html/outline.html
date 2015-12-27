@@ -21,7 +21,7 @@
 		<input class="button" type="submit" value="+">
 	</form>
 	<div class="part" ng-repeat="part in story.parts">
-		<h2>{{part.name}}
+		<h2>Part {{$index +1}}: {{part.name}}
 			<div class="outline-buttons part-and-chapter-buttons">
 				<button ng-hide="hideButtons || $last" class="button" type="button" ng-click="down($index,$parent.$index)">&#8595;</button>
 				<button ng-hide="hideButtons || $first" class="button" type="button" ng-click="up($index,$parent.$index)">&#8593;</button>
@@ -33,7 +33,7 @@
 			<input class="button" type="submit" value="+">
 		</form>
 		<div class="chapter" ng-repeat="chapter in part.chapters">
-			<h3>{{$index + 1}} - {{chapter.name}}
+			<h3>Chapter {{$index + 1}}: {{chapter.name}}
 				<div class="outline-buttons part-and-chapter-buttons">
 					<button ng-hide="hideButtons || $last" class="button" type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index)">&#8595;</button>
 					<button ng-hide="hideButtons || $first" class="button" type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index)">&#8593;</button>
