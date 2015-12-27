@@ -11,10 +11,41 @@ body{
 	background-color: hsl(193,100%,93%);
 }
 
+.center{
+	text-align: center;
+}
+
+h1{
+	font-size: 2rem;
+}
+
+h2{
+	font-size: 1.5rem;
+	display: inline-block;
+}
+
+h3{
+	font-size: 1.25rem;
+	display: inline-block;
+}
+
+li{
+	list-style-type: none;
+}
+
+li p{
+	overflow: hidden;
+}
+
+input{
+    padding: 0.2rem;
+    margin: 0.4rem auto;
+}
+
 .title{
 	position: fixed;
-	text-align: center;
 	width: 100%;
+	text-align: center;
 	top: 0px;
 	padding: 0.75rem;
 	background: transparent linear-gradient(to left, #007393, #00A3D1) repeat scroll 0% 0%;
@@ -46,12 +77,81 @@ body{
 	padding-top: 1.5rem;
 }
 
-.event{
-	margin: 0px 100px 0px 30px;
-	padding: 0.5rem 0.5rem 0.5rem 1rem;
+.outline-form{
+	margin-top: 0.25rem;
+}
+
+.outline-input{
+	display: inline-block;
+}
+
+.outline-buttons button{
+	background-color: #e2e6e9;
+	padding: 3px 7px;
+	margin: 0.25rem -2px 0px -2px;
+}
+
+.outline-buttons button:hover{
+	background-color: #c5ccd3;
+	transition: 0.5s;
+}
+
+.part-and-chapter-buttons{
+	display: inline-block;
+}
+
+.part-and-chapter-buttons button{
+	background-color: white;
+	border-radius: 50%;
+}
+
+.part-and-chapter-buttons button:hover{
+	background-color: #e2e6e9;
+	transition: 0.5s;
+}
+
+.button{
+	border-style: none;
+	display: inline-block;
+}
+
+.button,.button span{
+	letter-spacing: 1px;
+}
+
+input[value="+"]{
+	background-color: #E2E6E9;
+	border-radius: 50% 50%;
+	width: 1.5rem;
+	height: 1.5rem;
+	line-height: 0.5rem;
+	vertical-align: middle;
+}
+
+input[value="+"]:hover{
+	background-color: pink;
+	transition: 0.5s;
 }
 
 /*CSS COLOR NAME : lightslategrey*/
+
+.events{
+	margin: 1rem 3rem 0.5rem 1rem;
+	
+}
+
+.event p{
+	padding: 0.5rem;
+}
+
+.event-form{
+	display: block;
+}
+
+.event-form input[type="text"]{
+	width: 26rem;
+	margin-right: 0.3rem;
+}
 
 .event-even{
 	background-color: #f0f2f4;
@@ -61,12 +161,18 @@ body{
 	background-color: #e2e6e9;
 }
 
-.outline-form{
-	display: inline-block;
+.event-buttons{
+	float: right;
+	padding: 5px;
 }
 
-.event-form{
-	display: block;
+.event-buttons button{
+	background-color: rgba(1,1,1,0);
+}
+
+.event-buttons button:hover{
+	background-color: #c5ccd3;
+	transition: 0.5s;
 }
 
 .chapter{
@@ -77,26 +183,7 @@ body{
 	margin: 15px 0px 0px 15px;	
 }
 
-li{
-	list-style-type: none;
-}
-
-li p{
-	overflow: hidden;
-}
-
-h1{
-	font-size: 2rem;
-}
-
-h2{
-	font-size: 1.5rem;
-}
-
-h3{
-	font-size: 1.25rem;
-}
-
+/*LOGIN PAGE STYLES*/
 
 .box{
 	padding: 1rem;
@@ -120,12 +207,6 @@ h3{
     max-width: 300px;
 }
 
-input{
-    padding: 0.2rem;
-    margin: 0.4rem auto;
-    display: block;
-}
-
 .tabs{
 	max-width: 30rem;
 }
@@ -139,35 +220,12 @@ input{
 }
 
 .light-bg{
-	background-color: hsl(256,81%,66%);
+	background-color: #e2e6e9;
+	color: black;
 }
 
 .dark-bg{
-	background-color: hsl(241,33%,13%);
-	color: hsl(241,90%,77%);	
+	background-color: #8a99a8;
+	color: white;	
 }
 
-.button-container{
-	float: right;
-
-}
-
-.button{
-	border-style: none;
-	display: inline-block;
-	background-color: rgba(1,1,1,0);
-	padding: 4px;
-}
-
-.button,.button span{
-	letter-spacing: 1px;
-}
-
-.button:hover{
-	background-color: #c5ccd3;
-	transition: 0.5s;
-}
-
-.outline-input{
-	display: inline-block;
-}
