@@ -225,6 +225,8 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 	}
 
 	$scope.pasteEvent = function(index2,index3,index4){
+		$scope.hideButtons = false
+		$scope.hideForms = false
 		$scope.showPasteButtons = false
 		$scope.createEvent(index4,index3,index2,$scope.copiedText)
 	}

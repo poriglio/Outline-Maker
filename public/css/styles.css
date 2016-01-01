@@ -15,18 +15,20 @@ body{
 	text-align: center;
 }
 
+.inline-block{
+	display: inline-block;
+}
+
 h1{
 	font-size: 2rem;
 }
 
 h2{
 	font-size: 1.5rem;
-	display: inline-block;
 }
 
 h3{
 	font-size: 1.25rem;
-	display: inline-block;
 }
 
 li{
@@ -50,10 +52,6 @@ input{
 	background: transparent linear-gradient(to left, #007393, #00A3D1) repeat scroll 0% 0%;
 	box-shadow: 0px 1px 8px 1px #000;
 	border-bottom: 8px solid hsl(212,100%,23%);
-}
-
-.title *{
-	display: inline-block;
 }
 
 .title form{
@@ -80,33 +78,9 @@ input{
 	margin-top: 0.25rem;
 }
 
-.outline-input{
-	display: inline-block;
-}
-
 .outline-buttons button{
-	background-color: #e2e6e9;
 	padding: 3px 7px;
 	margin: 0.25rem -2px 0px -2px;
-}
-
-.outline-buttons button:hover{
-	background-color: #c5ccd3;
-	transition: 0.5s;
-}
-
-.part-and-chapter-buttons{
-	display: inline-block;
-}
-
-.part-and-chapter-buttons button{
-	background-color: white;
-	border-radius: 50%;
-}
-
-.part-and-chapter-buttons button:hover{
-	background-color: #e2e6e9;
-	transition: 0.5s;
 }
 
 .button{
@@ -118,18 +92,30 @@ input{
 	letter-spacing: 1px;
 }
 
-input[value="+"]{
-	background-color: #E2E6E9;
-	border-radius: 50%;
-	width: 1.75rem;
-	height: 1.75rem;
-	line-height: 0.5rem;
-	vertical-align: middle;
+.button-transparent{
+	background-color: rgba(1,1,1,0);
 }
 
-input[value="+"]:hover{
+.button-transparent:hover{
 	background-color: #c5ccd3;
 	transition: 0.5s;
+}
+
+.button-opaque{
+	background-color: #E2E6E9;
+}
+
+.button-opaque:hover{
+	background-color: #c5ccd3;
+	transition: 0.5s;
+}
+
+.button-round{
+	border-radius: 50%;
+	border-radius: 50%;
+	width: 1.6rem;
+	height: 1.6rem;
+	line-height: 0.5rem;
 }
 
 /*CSS COLOR NAME : lightslategrey*/
@@ -163,15 +149,6 @@ input[value="+"]:hover{
 .event-buttons{
 	float: right;
 	padding: 5px;
-}
-
-.event-buttons button{
-	background-color: rgba(1,1,1,0);
-}
-
-.event-buttons button:hover{
-	background-color: #c5ccd3;
-	transition: 0.5s;
 }
 
 .chapter{
@@ -211,11 +188,11 @@ input[value="+"]:hover{
 }
 
 .tab{
-	display: inline-block;
 	padding: 0.5rem 1.25rem;
 	margin-left: 0.5rem;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
+	width: 7rem;
 }
 
 .light-bg{

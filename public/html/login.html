@@ -1,12 +1,12 @@
 
 <div class="tabs">
-	<div ng-class="{'dark-bg':!signup}" ng-click="toggleForm(1)" class="tab light-bg">Log In</div>
-	<div ng-class="{'dark-bg':signup}" ng-click="toggleForm(0)" class="tab light-bg">Sign Up</div>
+	<div ng-class="{'dark-bg':!signup}" ng-click="toggleForm(1)" class="tab light-bg inline-block">Log In</div>
+	<div ng-class="{'dark-bg':signup}" ng-click="toggleForm(0)" class="tab light-bg inline-block">Sign Up</div>
 </div>
 
 <!-- sign up form -->
 
-<div ng-show="signup" class="box form-box dark-bg">
+<div ng-show="signup" class="center box form-box dark-bg">
 	<form class="home-form" method="POST" action="auth/signup">
 		<input type="text" name="username" placeholder="Username...">
 		<input type="text" name="email" placeholder="E-mail address...">
@@ -17,7 +17,7 @@
 
 	<!-- login form -->
 
-<div ng-show="!signup" class="box form-box dark-bg">
+<div ng-show="!signup" class="center box form-box dark-bg">
 	<form class="home-form" method="POST" action="/auth/login">
 		<input type="text" name="username" placeholder="Username...">
 		<input type="password" name="password" placeholder="Password...">
