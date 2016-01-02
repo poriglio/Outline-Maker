@@ -1,12 +1,21 @@
-<form class="outline-form center" ng-submit="createOutline()">
-	<input type="text" placeholder="New outline title..." name="title" ng-model="title">
-	<input class="button button-round button-opaque" type="submit" value="+">
-</form>
+<div class="outline-controls">
+	<div ng-mouseenter="toggleList()" ng-mouseleave="toggleList()" class="inline-block dropdown">
+		<button class="button button-user" type="button">Your outlines...</button>
+		<ul ng-show="showList" ng-repeat="story in stories">
+			<li ng-class-even="'event-even'" ng-class-odd="'event-odd'" ng-click="activate($index)">{{story.title}}</li>
+		</ul>
+	</div>
 
-<div class="outline" ng-repeat="story in stories">
+	<form class="inline-block form form-outline float-right" ng-submit="createOutline()">
+		<input type="text" placeholder="New outline title..." name="title" ng-model="title">
+		<input class="button button-round button-opaque" type="submit" value="+">
+	</form>
+</div>
+
+<div class="outline" ng-repeat="story in stories" ng-show="story.active===true">
 	<h1 class="center">{{story.title}}</h1>
 
-	<div class="outline-buttons center">	
+	<div class="buttons-bar center">	
 		<button type="button" class="button button-opaque" ng-click="toggleButtons()"><span ng-show="hideButtons === true">show</span><span ng-hide="hideButtons === true">hide</span> buttons</button>
 
 		<button type="button" class="button button-opaque" ng-click="toggleForms()"><span ng-show="hideForms === true">show</span><span ng-hide="hideForms === true">hide</span> forms</button>
@@ -15,11 +24,11 @@
 		<button class="button button-opaque" type="button" ng-click="saveOutline($index)">save</button>
 	</div>
 
-	<form ng-hide="hideForms" class="outline-form center" ng-submit="createPart($index,part)">
+	<form ng-hide="hideForms" class="form center" ng-submit="createPart($index,part)">
 		<input type="text" placeholder="Part name..." name="part.name" ng-model="part.name">
 		<input class="button button-round button-opaque" type="submit" value="+">
 	</form>
-	<div class="part" ng-repeat="part in story.parts">
+	<div class="outline-level" ng-repeat="part in story.parts">
 		<h2>Part {{$index +1}}: {{part.name}}
 			<div class="inline-block">
 				<button ng-hide="hideButtons || $last" class="button button-transparent button-round" type="button" ng-click="down($index,$parent.$index)">&#8595;</button>
@@ -27,11 +36,11 @@
 				<button ng-hide="hideButtons" class="button button-transparent button-round" type="button" ng-click="delete($index,$parent.$index)">x</button>
 			</div>
 		</h2>
-		<form ng-hide="hideForms" class="outline-form" ng-submit="createChapter($parent.$index,$index,chapter)">
+		<form ng-hide="hideForms" class="form" ng-submit="createChapter($parent.$index,$index,chapter)">
 			<input type="text" placeholder="Chapter name..." name="chapter.name" ng-model="chapter.name">
 			<input class="button button-round button-opaque" type="submit" value="+">
 		</form>
-		<div class="chapter" ng-repeat="chapter in part.chapters">
+		<div class="outline-level" ng-repeat="chapter in part.chapters">
 			<h3>Chapter {{$index + 1}}: {{chapter.name}}
 				<button ng-show="showPasteButtons" class="button button-opaque" type="button" ng-click="pasteEvent($index,$parent.$index,$parent.$parent.$index)">paste event...</button>
 				<div class="inline-block">
@@ -40,9 +49,9 @@
 					<button ng-hide="hideButtons" class="button button-transparent button-round" type="button" ng-click="delete($index,$parent.$index,$parent.$parent.$index)">x</button>
 				</div>
 			</h3>
-			<ul class="events">
+			<ul class="outline-level">
 				<li class="event" ng-repeat="event in chapter.events" ng-class-even="'event-even'" ng-class-odd="'event-odd'">
-					<div class="event-buttons">
+					<div class="event-buttons float-right">
 						<button ng-hide="hideButtons || $last" class="button button-transparent button-round" type="button" ng-click="down($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">&#8595;</button>
 						<button ng-hide="hideButtons || $first" class="button button-transparent button-round" type="button" ng-click="up($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">&#8593;</button>
 						<button ng-hide="hideButtons" class="button button-transparent button-round" type="button" ng-click="copyEvent($index,$parent.$index,$parent.$parent.$index,$parent.$parent.$parent.$index)">&#8596;</button>
@@ -51,8 +60,8 @@
 					<p>{{event.content}}</p>
 				</li>
 			</ul>
-			<form ng-hide="hideForms" class="outline-form center event-form" ng-submit="createEvent($parent.$parent.$index,$parent.$index,$index,event)">
-				<input type="text" placeholder="Event..." name="event.content" ng-model="event.content">
+			<form ng-hide="hideForms" class="center" ng-submit="createEvent($parent.$parent.$index,$parent.$index,$index,event)">
+				<input class="event-input" type="text" placeholder="Event..." name="event.content" ng-model="event.content">
 				<input class="button button-round button-opaque" type="submit" value="+">
 			</form>
 		</div>

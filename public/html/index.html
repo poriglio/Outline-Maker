@@ -10,10 +10,15 @@
 		<script src="/js/main.js"></script>
 	</head>
 	<body ng-app="storyApp">
-		<div class="title center">
-			<h1>Outline Builder</h1>
-			<form action="/auth/logout" method="GET">
-				<input class="button" type="submit" value="log out">
+		<div ng-controller="outlineController" class="title">
+			<h1 class="inline-block">Outline Builder</h1>
+			<form ng-show="username" class="float-right inline-block" action="/auth/logout" method="GET">
+				<input class="button-user button" type="submit" value="log out">
+			</form>
+			<form ng-show="!username" class="float-right inline-block" method="POST" action="/auth/login">
+				<input type="text" name="username" placeholder="Username...">
+				<input type="password" name="password" placeholder="Password...">
+				<input class="button-user button" type="submit" value="log in">
 			</form>
 		</div>
 		<div class="template" ng-view>

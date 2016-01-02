@@ -1,3 +1,7 @@
+/*CSS COLOR NAME : lightslategrey*/
+
+/*TAGS*/
+
 html *{
 	padding: 0px;
 	margin: 0px;
@@ -8,15 +12,8 @@ html *{
 }
 
 body{
-	background-color: hsl(193,100%,93%);
-}
-
-.center{
-	text-align: center;
-}
-
-.inline-block{
-	display: inline-block;
+	background-image: url("/images/dots.jpg");
+	background-attachment: fixed;
 }
 
 h1{
@@ -31,35 +28,30 @@ h3{
 	font-size: 1.25rem;
 }
 
-li{
-	list-style-type: none;
+.home p{
+	margin: 1rem;
 }
 
-li p{
-	overflow: hidden;
-}
-
-input{
+/*input{
     padding: 0.2rem;
     margin: 0.4rem auto;
-}
+}*/
+
+/*FIXED HEADING*/
 
 .title{
 	position: fixed;
 	width: 100%;
 	top: 0px;
 	padding: 0.75rem;
-	background: transparent linear-gradient(to left, #007393, #00A3D1) repeat scroll 0% 0%;
+	background: transparent linear-gradient(to right, hsl(200,100%,36%), hsl(200,100%,67%));
 	box-shadow: 0px 1px 8px 1px #000;
-	border-bottom: 8px solid hsl(212,100%,23%);
-}
-
-.title form{
-	float: right;
+	border-bottom: 4px solid hsl(292,100%,76%);
+	color: white;
 }
 
 .template{
-	max-width: 1000px;
+	max-width: 850px;
 	margin-top: 5.75rem;
 	padding: 1rem;
 	width: 100%;
@@ -68,17 +60,99 @@ input{
 	margin-bottom: 10rem;
 }
 
+/*DROPDOWN MENU*/
+.dropdown{
+	position: absolute;
+}
+
+.dropdown ul{
+	positive: relative;
+}
+
+.dropdown li{
+	padding: 0.5rem;
+}
+
+/*HELPER STYLES*/
+
+.center{
+	text-align: center;
+}
+
+.inline-block{
+	display: inline-block;
+}
+
+.float-right{
+	float: right;
+}
+
+/*OUTLINE*/
+
+.outline-controls{
+	height: 3rem;
+}
+
 .outline{
 	border-top: 4px double hsl(212,100%,23%);
-	margin: 2rem 2rem;
-	padding-top: 1.5rem;
+	padding: 1rem 0rem;
 }
 
-.outline-form{
-	margin-top: 0.25rem;
+.outline-level{
+    margin: 1rem 0.5rem 1rem 1rem;
 }
 
-.outline-buttons button{
+.form{
+	padding-top: 0.5rem;
+}
+
+.form-outline{
+	padding-bottom: 1rem;
+}
+
+/*EVENTS LISTS*/
+
+.event p{
+	padding: 0.5rem;
+}
+
+.event-input{
+	width: 26rem;
+}
+
+.event-even{
+	background-color: #f0f2f4;
+}
+
+.event-odd{
+	background-color: #e2e6e9;
+}
+
+.event-even:hover{
+	background-color: #c5ccd3;
+	transition: 0.5s;
+}
+
+.event-odd:hover{
+	background-color: #c5ccd3;
+	transition: 0.5s;
+}
+
+.event-buttons{
+	padding: 5px;
+}
+
+li{
+	list-style-type: none;
+}
+
+li p{
+	overflow: hidden;
+}
+
+/*BUTTON STYLES*/
+
+.buttons-bar button{
 	padding: 3px 7px;
 	margin: 0.25rem -2px 0px -2px;
 }
@@ -118,90 +192,13 @@ input{
 	line-height: 0.5rem;
 }
 
-/*CSS COLOR NAME : lightslategrey*/
-
-.events{
-	margin: 1rem 3rem 0.5rem 1rem;
-	
-}
-
-.event p{
-	padding: 0.5rem;
-}
-
-.event-form{
-	display: block;
-}
-
-.event-form input[type="text"]{
-	width: 26rem;
-	margin-right: 0.3rem;
-}
-
-.event-even{
-	background-color: #f0f2f4;
-}
-
-.event-odd{
-	background-color: #e2e6e9;
-}
-
-.event-buttons{
-	float: right;
-	padding: 5px;
-}
-
-.chapter{
-	margin: 15px 0px 0px 25px;
-}
-
-.part{
-	margin: 15px 0px 0px 15px;	
-}
-
-/*LOGIN PAGE STYLES*/
-
-.box{
-	padding: 1rem;
-	width: 100%;
+.button-user{
+	background-color: hsl(320,100%,89%);
 	border-radius: 8px;
+	padding: 2px 15px;
 }
 
-.form-box{
-	max-width: 30rem;
-	height: 14rem;
+.button-user:hover{
+	transition: 0.5s;
+	background-color: hsl(320,100%,77%);
 }
-
-.home-form{
-	position: relative;
-  	top: 50%;
-  	transform: translateY(-50%);
-}
-
-.form-box input{
-    width: 90%;
-    max-width: 300px;
-}
-
-.tabs{
-	max-width: 30rem;
-}
-
-.tab{
-	padding: 0.5rem 1.25rem;
-	margin-left: 0.5rem;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
-	width: 7rem;
-}
-
-.light-bg{
-	background-color: #e2e6e9;
-	color: black;
-}
-
-.dark-bg{
-	background-color: #8a99a8;
-	color: white;	
-}
-

@@ -20,11 +20,10 @@ var signup = function(request,response){
 	})
 }
 
-
 var performLogin = function(request,response,next,user){
 	request.login(user,function(error){
 		if(error) return next(error)
-		return response.redirect("/#/outline")
+		return response.redirect("/#/outlines")
 	})
 }
 

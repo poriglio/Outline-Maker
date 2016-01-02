@@ -1,26 +1,21 @@
 
-<div class="tabs">
-	<div ng-class="{'dark-bg':!signup}" ng-click="toggleForm(1)" class="tab light-bg inline-block">Log In</div>
-	<div ng-class="{'dark-bg':signup}" ng-click="toggleForm(0)" class="tab light-bg inline-block">Sign Up</div>
-</div>
-
-<!-- sign up form -->
-
-<div ng-show="signup" class="center box form-box dark-bg">
-	<form class="home-form" method="POST" action="auth/signup">
+<div class="center home">
+	<p>
+		Welcome to Outlines, a tool for writers. Organize your stories into parts, chapters, and events, and move plot points around with the click of a button. Planning your novel has never been easier!
+	</p>
+	<p>
+		Outlines is still in development, so your are highly encouraged to keep a backup copy of your work. You can easily do this by clicking "File" at the top of the screen, then "Save page as..."
+	</p>
+	<p>
+		Also, make sure to click the "save" button to save your work! This will not happen automatically.
+	</p>
+	<p>
+		Feel free to contact the webmaster at <a href="mailto:minplynn@aol.com">minplynn@aol.com</a> with any suggestions or bugs. Thank you, and I hope you enjoy my site!
+	</p>
+	<form method="POST" action="auth/signup">
 		<input type="text" name="username" placeholder="Username...">
 		<input type="text" name="email" placeholder="E-mail address...">
 		<input type="password" name="password" placeholder="Password...">
-		<input class="button light-bg" type="submit" value="sign up">
-	</form>
-</div>
-
-	<!-- login form -->
-
-<div ng-show="!signup" class="center box form-box dark-bg">
-	<form class="home-form" method="POST" action="/auth/login">
-		<input type="text" name="username" placeholder="Username...">
-		<input type="password" name="password" placeholder="Password...">
-		<input class="button light-bg" type="submit" value="log in">
+		<input class="button button-user" type="submit" value="sign up">
 	</form>
 </div>

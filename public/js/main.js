@@ -4,13 +4,12 @@ angular.module("storyApp").config(["$routeProvider",function($routeProvider){
 
 	$routeProvider.when("/",{
 		templateUrl : "/html/login.html",
-		controller  : "homeController"
-	})
-	.when("/outline",{
-		templateUrl : "/html/outline.html",
 		controller  : "outlineController"
 	})
-
+	.when("/outlines",{
+		templateUrl : "/html/outline.html",
+		controller  : "outlineController",
+	})
 }])
 
 angular.module("storyApp").controller("dropdownController",["$scope","$log",function($scope,$log){
@@ -43,25 +42,9 @@ angular.module("storyApp").controller("dropdownController",["$scope","$log",func
 
 }])
 
-angular.module("storyApp").controller("homeController",["$scope",function($scope){
-
-	$scope.toggleForm = function(form){
-		$scope.signup;
-		function toggle(){
-			if(form){
-				$scope.signup = false
-			}
-			else{
-				$scope.signup = true
-			}
-			return $scope.signup
-		}
-		return toggle()
-	}
-
-}])
-
 angular.module("storyApp").controller("outlineController",["$scope","$http",function($scope,$http){
+
+	console.log($scope.username)
 
 	$scope.stories = []
 
@@ -250,6 +233,22 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 		else{
 			$scope.hideForms = true
 		}
+	}
+
+	$scope.toggleList = function(){
+		if($scope.showList === true){
+			$scope.showList = false
+		}
+		else{
+			$scope.showList = true
+		}
+	}
+
+	$scope.activate = function($index){
+		for(var i = 0; i < $scope.stories.length; i++){
+			$scope.stories[i].active = false
+		}
+		$scope.stories[$index].active = true
 	}
 
 }])
