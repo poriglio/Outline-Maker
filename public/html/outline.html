@@ -2,7 +2,7 @@
 	<div ng-mouseenter="toggleList()" ng-mouseleave="toggleList()" class="inline-block dropdown">
 		<button class="button button-user" type="button">Your outlines...</button>
 		<ul ng-show="showList" ng-repeat="story in stories">
-			<li ng-class-even="'event-even'" ng-class-odd="'event-odd'" ng-click="activate($index)">{{story.title}}</li>
+			<li ng-class-even="'list-even'" ng-class-odd="'list-odd'" ng-click="activate($index)">{{story.title}}</li>
 		</ul>
 	</div>
 

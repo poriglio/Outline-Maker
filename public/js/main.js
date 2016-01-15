@@ -94,6 +94,7 @@ angular.module("storyApp").controller("outlineController",["$scope","$http",func
 		new Outline($scope.title,"Paula",[])
 		$scope.saveOutline(0)
 		getOutlines()
+		$scope.activate(0)
 	}
 
 	$scope.createPart = function($index,part){

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Outline Builder</title>
+		<title>PlotHound</title>
 		<meta charset="utf-8">
 		<link href="/css/styles.css" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="images/logo.jpg">
 		<script src="/js/angular-min.js"></script>
 		<script src="/js/angular-route.min.js"></script>
 		<script src="/js/ui-bootstrap.min.js"></script>
@@ -11,7 +12,8 @@
 	</head>
 	<body ng-app="storyApp">
 		<div ng-controller="outlineController" class="title">
-			<h1 class="inline-block">Outline Builder</h1>
+			<img class="logo inline-block" src="/images/plothound.png">
+			<h1 class="inline-block">PlotHound</h1>
 			<form ng-show="username" class="float-right inline-block" action="/auth/logout" method="GET">
 				<input class="button-user button" type="submit" value="log out">
 			</form>

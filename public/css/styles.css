@@ -32,14 +32,19 @@ h3{
 	margin: 1rem;
 }
 
-/*input{
+input{
     padding: 0.2rem;
     margin: 0.4rem auto;
-}*/
+}
 
 /*FIXED HEADING*/
 
+.logo{
+	width: 75px;
+}
+
 .title{
+	z-index: 20;
 	position: fixed;
 	width: 100%;
 	top: 0px;
@@ -48,6 +53,13 @@ h3{
 	box-shadow: 0px 1px 8px 1px #000;
 	border-bottom: 4px solid hsl(292,100%,76%);
 	color: white;
+}
+
+.title h1{
+	position: absolute;
+	left: 5rem;
+	top: 1.5rem;
+	color: hsl(303,71%,90%);
 }
 
 .template{
@@ -62,15 +74,31 @@ h3{
 
 /*DROPDOWN MENU*/
 .dropdown{
-	position: absolute;
+	position: relative;
 }
 
-.dropdown ul{
-	positive: relative;
+.dropdown>ul{
+	top: 0.6rem;
+	position: relative;
+	left: 0.6rem;
+	outline: 1px solid black;
 }
 
 .dropdown li{
 	padding: 0.5rem;
+}
+
+.list-odd{
+	background-color: #f0f2f4;
+}
+
+.list-even{
+	background-color: #e2e6e9;
+}
+
+.list-odd:hover,.list-even:hover{
+	background-color: #b6bfc8;
+	transition: 0.5s;
 }
 
 /*HELPER STYLES*/
@@ -90,7 +118,7 @@ h3{
 /*OUTLINE*/
 
 .outline-controls{
-	height: 3rem;
+	height: 4rem;
 }
 
 .outline{
@@ -128,18 +156,8 @@ h3{
 	background-color: #e2e6e9;
 }
 
-.event-even:hover{
-	background-color: #c5ccd3;
-	transition: 0.5s;
-}
-
-.event-odd:hover{
-	background-color: #c5ccd3;
-	transition: 0.5s;
-}
-
 .event-buttons{
-	padding: 5px;
+	padding: 0.1rem;
 }
 
 li{
